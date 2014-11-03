@@ -1,12 +1,25 @@
-'use strict';
+  (function(){
+    'use strict';
 
-angular.module('<%= scriptAppName %>')
-  .directive('<%= cameledName %>', function () {
-    return {
-      template: '<div></div>',
-      restrict: 'EA',
-      link: function (scope, element, attrs) {
+    angular.module('<%= scriptAppName %>')
+      .directive('<%= cameledName %>', <%= classedName %>);
+
+    function <%= classedName %>(){
+
+      var directive = {
+        template: '<div></div>',
+        restrict: 'EA',
+        link: link
+      };
+
+      return directive;
+
+      ////////////
+
+      function link(scope, element, attrs){
         element.text('this is the <%= cameledName %> directive');
       }
-    };
-  });
+
+    }
+
+  })();

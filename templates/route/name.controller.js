@@ -1,6 +1,22 @@
-'use strict';
+(function(){
+  'use strict';
 
-angular.module('<%= scriptAppName %>')
-  .controller('<%= classedName %>Ctrl', function ($scope) {
-    $scope.message = 'Hello';
-  });
+  angular.module('<%= scriptAppName %>')
+    .controller('<%= classedName %>Ctrl', <%= classedName %>);
+
+    function <%= classedName %>() {
+
+      var vm = this;
+      vm.message = message;
+
+      ////////////
+
+      function message() {
+        return 'Hello';
+      }
+
+    }
+
+  };
+
+})();
