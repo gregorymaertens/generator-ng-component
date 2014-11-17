@@ -7,7 +7,7 @@
     function <%= classedName %>(){
 
       var directive = {
-        template: '<div></div>',
+        templateUrl: '<%= htmlUrl %>',
         restrict: 'EA',
         link: link
       };
