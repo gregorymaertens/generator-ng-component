@@ -4,7 +4,7 @@
   angular.module('<%= scriptAppName %>')
     .factory('<%= cameledName %>', <%= classedName %>);
 
-    function <%= classedName %>() {
+    function <%= classedName %>($log, ENV) {
 
       // Public API here
       var service = {

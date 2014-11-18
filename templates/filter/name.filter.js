@@ -4,7 +4,7 @@
   angular.module('<%= scriptAppName %>')
     .filter('<%= cameledName %>', <%= classedName %>);
 
-  function <%= classedName %>() {
+  function <%= classedName %>($log, ENV) {
 
     return filter;
 

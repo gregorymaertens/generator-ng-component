@@ -4,7 +4,7 @@
     angular.module('<%= scriptAppName %>')
       .directive('<%= cameledName %>', <%= classedName %>);
 
-    function <%= classedName %>(){
+    function <%= classedName %>($log, ENV){
 
       var directive = {
         templateUrl: '<%= htmlUrl %>',
