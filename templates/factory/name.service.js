@@ -4,24 +4,24 @@
   angular.module('<%= scriptAppName %>')
     .factory('<%= cameledName %>', <%= classedName %>);
 
-    function <%= classedName %>($log, ENV) {
+  function <%= classedName %>($log, ENV) {
 
-      // Public API here
-      var service = {
-        someMethod: someMethod
-      };
+    // Public API here
+    var service = {
+      someMethod: someMethod
+    };
 
-      // Service logic
-      // ...
-      var meaningOfLife = 42;
+    // Service logic
+    // ...
+    var meaningOfLife = 42;
 
-      return service;
+    return service;
 
-      ////////////
-      function someMethod(){
-        return meaningOfLife;
-      }
-
+    ////////////
+    function someMethod(){
+      return meaningOfLife;
     }
+
+  }
 
 })();

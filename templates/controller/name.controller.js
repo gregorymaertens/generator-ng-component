@@ -4,19 +4,17 @@
   angular.module('<%= scriptAppName %>')
     .controller('<%= classedName %>Ctrl', <%= classedName %>);
 
-    function <%= classedName %>() {
+  function <%= classedName %>($log, ENV) {
 
-      var vm = this;
-      vm.message = message;
+    var vm = this;
+    vm.message = message;
 
-      ////////////
+    ////////////
 
-      function message() {
-        return 'Hello';
-      }
-
+    function message() {
+      return 'Hello';
     }
 
-  };
+  }
 
 })();
