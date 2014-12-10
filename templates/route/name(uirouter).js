@@ -7,6 +7,6 @@ angular.module('<%= scriptAppName %>')
         url: '<%= route %>',
         templateUrl: '<%= htmlUrl %>',
         controller: '<%= classedName %>Ctrl',
-        controllerAs: '<%= name %>Ctrl'
+        controllerAs: 'vm'
       });
   });
