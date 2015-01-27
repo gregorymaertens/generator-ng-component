@@ -1,5 +1,5 @@
 (function(){
-  'use strict'
+  'use strict';
 
   angular.module('<%= scriptAppName %>')
     .filter('<%= cameledName %>', <%= classedName %>);
@@ -12,7 +12,7 @@
 
     function filter(input) {
       return '<%= cameledName %> filter: ' + input;
-    };
+    }
 
   }
 
