@@ -7,3 +7,6 @@ Available Generators:
     yo ng-component:service [name]
     yo ng-component:factory [name]
     yo ng-component:filter [name]
+    yo ng-component:controller [name]
+    yo ng-component:module [name]
+    
