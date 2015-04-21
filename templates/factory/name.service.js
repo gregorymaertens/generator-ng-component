@@ -1,12 +1,12 @@
 (function(){
   'use strict';
 
-  angular.module('<%= scriptAppName %>').factory('<%= cameledName %>', <%= classedName %>);
+  angular.module('<%= scriptAppName %>').factory('<%= cameledName %>'Factory, <%= cameledName %>Factory);
 
-  function <%= classedName %>($log, ENV) {
+  function <%= cameledName %>Factory() {
 
     // Public API here
-    var service = {
+    var factory = {
       someMethod: someMethod
     };
 
@@ -14,7 +14,7 @@
     // ...
     var meaningOfLife = 42;
 
-    return service;
+    return factory;
 
     ////////////
     function someMethod(){
