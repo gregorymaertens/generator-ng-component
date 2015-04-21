@@ -23,7 +23,7 @@ Generator.prototype.askFor = function askFor() {
     {
       name: 'module',
       message: 'What will the module name be?',
-			default:  self.config.get('modulePrefix')===''?self.name:(self.config.get('modulePrefix')+'.'+self.name)
+			default:  self.config.get('modulePrefix')===''?self.name.toLowerCase():(self.config.get('modulePrefix')+'.'+self.name.toLowerCase())
     }
   ];
 
