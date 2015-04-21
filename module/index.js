@@ -28,7 +28,7 @@ Generator.prototype.askFor = function askFor() {
   ];
 
   this.prompt(prompts, function (props) {
-    this.dir = this.altDir || path.join(props.dir, this.name);
+    this.dir = path.join(props.dir, this.compName);
 		this.scriptAppName = props.module;
     done();
   }.bind(this));

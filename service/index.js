@@ -23,7 +23,7 @@ Generator.prototype.askFor = function askFor() {
   ];
 
   this.prompt(prompts, function (props) {
-    this.dir = this.altDir || path.join(props.dir, this.compName);
+    this.dir = path.join(props.dir, this.compName);
     done();
   }.bind(this));
 };

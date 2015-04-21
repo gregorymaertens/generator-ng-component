@@ -19,7 +19,7 @@ Generator.prototype.askFor = function askFor() {
     {
       name: 'dir',
       message: 'Where would you like to create this directive?',
-      default: self.config.get('directiveDirectory')
+      default: this.altDir || self.config.get('directiveDirectory')
     },
     {
       type:'confirm',
@@ -30,7 +30,7 @@ Generator.prototype.askFor = function askFor() {
   ];
 
   this.prompt(prompts, function (props) {
-    this.dir = this.altDir || path.join(props.dir, this.name);
+    this.dir = path.join(props.dir, this.compName);
     this.complex = props.complex;
     done();
   }.bind(this));

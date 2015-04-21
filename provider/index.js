@@ -18,12 +18,12 @@ Generator.prototype.askFor = function askFor() {
     {
       name: 'dir',
       message: 'Where would you like to create this provider?',
-      default: self.config.get('serviceDirectory')
+      default: this.altDir || self.config.get('serviceDirectory')
     }
   ];
 
   this.prompt(prompts, function (props) {
-    this.dir = this.altDir || path.join(props.dir, this.name);
+    this.dir = path.join(props.dir, this.compName);
     done();
   }.bind(this));
 };

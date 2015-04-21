@@ -20,7 +20,7 @@ Generator.prototype.askFor = function askFor() {
     {
       name: 'dir',
       message: 'Where would you like to create this route?',
-      default: self.config.get('routeDirectory')
+      default: this.altDir || self.config.get('routeDirectory')
     },
     {
       name: 'route',
@@ -31,7 +31,7 @@ Generator.prototype.askFor = function askFor() {
 
   this.prompt(prompts, function (props) {
     this.route = props.route;
-    this.dir = this.altDir || path.join(props.dir, this.name);
+    this.dir = path.join(props.dir, this.compName);
     done();
   }.bind(this));
 };
