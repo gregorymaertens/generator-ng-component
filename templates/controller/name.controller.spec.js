@@ -5,12 +5,12 @@ describe('Controller: <%= classedName %>Ctrl', function () {
   // load the controller's module
   beforeEach(module('<%= scriptAppName %>'));
 
-  var <%= classedName %>Ctrl, scope;
+  var <%= classedName %>Controller, scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    <%= classedName %>Ctrl = $controller('<%= classedName %>Ctrl', {
+    <%= classedName %>Controller = $controller('<%= classedName %>Controller', {
       $scope: scope
     });
   }));

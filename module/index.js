@@ -17,19 +17,23 @@ Generator.prototype.askFor = function askFor() {
   var prompts = [
     {
       name: 'dir',
-      message: 'Where would you like to create this controller?',
+      message: 'Where would you like to create this module?',
       default: this.altDir || self.config.get('routeDirectory')
+    },
+    {
+      name: 'module',
+      message: 'What will the module name be?',
+			default:  self.config.get('modulePrefix')===''?self.name:(self.config.get('modulePrefix')+'.'+self.name)
     }
   ];
 
   this.prompt(prompts, function (props) {
-    this.dir = path.join(props.dir, this.name);
+    this.dir = this.altDir || path.join(props.dir, this.name);
+		this.scriptAppName = props.module;
     done();
   }.bind(this));
 };
 
 Generator.prototype.createFiles = function createFiles() {
-	var moduleName = ngUtil.moduleName(this.dir);
-	this.scriptAppName = moduleName || this.scriptAppName;
-  ngUtil.copyTemplates(this, 'controller');
+  ngUtil.copyTemplates(this, 'module');
 };

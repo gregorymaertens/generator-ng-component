@@ -23,11 +23,13 @@ Generator.prototype.askFor = function askFor() {
   ];
 
   this.prompt(prompts, function (props) {
-    this.dir = path.join(props.dir, this.name);
+    this.dir = this.altDir || path.join(props.dir, this.name);
     done();
   }.bind(this));
 };
 
 Generator.prototype.createFiles = function createFiles() {
+	var moduleName = ngUtil.moduleName(this.dir);
+	this.scriptAppName = moduleName || this.scriptAppName;
   ngUtil.copyTemplates(this, 'provider');
 };

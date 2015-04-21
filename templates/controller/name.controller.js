@@ -1,20 +1,14 @@
 (function(){
-  'use strict';
+	'use strict';
 
-  angular.module('<%= scriptAppName %>')
-    .controller('<%= classedName %>Ctrl', <%= classedName %>);
+	angular.module('<%= scriptAppName %>').controller('<%= classedName %>Controller', <%= classedName %>Controller);
 
-  function <%= classedName %>($log, ENV) {
+	function <%= classedName %>Controller() {
 
-    var vm = this;
-    vm.message = message;
+		/* jshint validthis: true */
+		var vm = this;
 
-    ////////////
 
-    function message() {
-      return 'Hello';
-    }
-
-  }
+	}
 
 })();

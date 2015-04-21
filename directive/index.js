@@ -30,7 +30,7 @@ Generator.prototype.askFor = function askFor() {
   ];
 
   this.prompt(prompts, function (props) {
-    this.dir = path.join(props.dir, this.name);
+    this.dir = this.altDir || path.join(props.dir, this.name);
     this.complex = props.complex;
     done();
   }.bind(this));
@@ -44,7 +44,10 @@ Generator.prototype.createFiles = function createFiles() {
     templateDir = path.join(this.sourceRoot(), 'directiveComplex');
   }
 
+	var moduleName = ngUtil.moduleName(this.dir);
+	this.scriptAppName = moduleName || this.scriptAppName;
+  
   var basePath = this.config.get('basePath') || '';
-  this.htmlUrl = ngUtil.relativeUrl(basePath, path.join(this.dir, this.name + '.html'));
+  this.htmlUrl = ngUtil.relativeUrl(basePath, path.join(this.dir, this.name + '.html'), this.config.get('urlPrefix'));
   ngUtil.copyTemplates(this, 'directive', templateDir, configName);
 };

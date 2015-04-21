@@ -17,6 +17,8 @@ var Generator = module.exports = function Generator() {
 
   this.cameledName = this._.camelize(this.name);
   this.classedName = this._.classify(this.name);
+  this.compName = this.options.comp !== undefined ? this.options.comp : this.name;
+  this.altDir = this.options.alt !== undefined ? this.config.get('basePath') + '/' + this.options.alt +'/':undefined; 
 
   this.hasFilter = function(filter) {
     return this.config.get('filters').indexOf(filter) !== -1;

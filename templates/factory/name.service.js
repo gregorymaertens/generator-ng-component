@@ -1,8 +1,7 @@
 (function(){
   'use strict';
 
-  angular.module('<%= scriptAppName %>')
-    .factory('<%= cameledName %>', <%= classedName %>);
+  angular.module('<%= scriptAppName %>').factory('<%= cameledName %>', <%= classedName %>);
 
   function <%= classedName %>($log, ENV) {
 

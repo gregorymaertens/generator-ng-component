@@ -1,13 +1,15 @@
 'use strict';
 var path = require('path');
 var fs = require('fs');
+var esprima = require('esprima');
 
 module.exports = {
   rewrite: rewrite,
   rewriteFile: rewriteFile,
   appName: appName,
   copyTemplates: copyTemplates,
-  relativeUrl: relativeUrl
+  relativeUrl: relativeUrl,
+	moduleName: moduleName
 };
 
 function rewriteFile (args) {
@@ -123,7 +125,58 @@ function copyTemplates (self, type, templateDir, configName) {
     });
 };
 
-function relativeUrl(basePath, targetPath) {
+function relativeUrl(basePath, targetPath, prefix) {
   var relativePath = path.relative(basePath, targetPath);
-  return relativePath.split(path.sep).join('/');
+  var p= relativePath.split(path.sep).join('/');
+  return prefix ? path.join(prefix, p) : p;
+}
+
+function traverse(object, visitor) {
+    var key, child;
+
+    if (visitor.call(null, object) === false) {
+        return;
+    }
+    for (key in object) {
+        if (object.hasOwnProperty(key)) {
+            child = object[key];
+            if (typeof child === 'object' && child !== null) {
+                traverse(child, visitor);
+            }
+        }
+    }
+}
+
+function moduleName(compPath)
+{
+	if (!fs.existsSync(compPath))
+	{
+		return undefined;
+	}
+	var list = fs.readdirSync(compPath);
+	var module;
+	var regex = /^.*module\.js$/
+	for(var i=0;i<list.length;i++)
+	{
+		if (regex.test(list[i]))
+		{
+			module = list[i];
+		}
+	}
+	var moduleName;
+	if (module)
+	{
+		console.log('getting module name from ' + module);
+		var srcCode = fs.readFileSync(path.join(compPath, module), 'utf8');
+		var ast = esprima.parse(srcCode, {
+		    loc: true
+		});
+		traverse(ast, function (node) {
+			if (node.type === 'CallExpression') { 
+				if ( (node.callee.object !== undefined) && (node.callee.object.name === 'angular') && (node.callee.property.name === 'module') )
+				{ moduleName = node.arguments[0].value; }
+ } });
+
+	}
+	return moduleName;
 }
