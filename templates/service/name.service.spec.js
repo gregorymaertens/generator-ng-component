@@ -1,3 +1,4 @@
+(function(){
 'use strict';
 
 describe('Service: <%= cameledName %>Service', function () {
@@ -17,3 +18,4 @@ describe('Service: <%= cameledName %>Service', function () {
   });
 
 });
+})();

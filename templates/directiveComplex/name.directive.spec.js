@@ -1,3 +1,4 @@
+(function(){
 'use strict';
 
 describe('Directive: <%= cameledName %>', function () {
@@ -20,3 +21,4 @@ describe('Directive: <%= cameledName %>', function () {
     expect(element.text()).to.equal('this is the <%= cameledName %> directive');<% } %>
   }));
 });
+})();

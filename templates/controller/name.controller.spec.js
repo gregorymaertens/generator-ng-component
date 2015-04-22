@@ -1,3 +1,4 @@
+(function(){
 'use strict';
 
 describe('Controller: <%= classedName %>Ctrl', function () {
@@ -20,3 +21,4 @@ describe('Controller: <%= classedName %>Ctrl', function () {
     expect(1).to.equal(1);<% } %>
   });
 });
+})();
